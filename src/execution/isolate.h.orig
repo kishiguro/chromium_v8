@@ -1173,9 +1173,9 @@ class V8_EXPORT_PRIVATE Isolate final : private HiddenFactory {
       kDefaultCollator, kDefaultNumberFormat, kDefaultSimpleDateFormat,
       kDefaultSimpleDateFormatForTime, kDefaultSimpleDateFormatForDate};
 
-  U_ICU_NAMESPACE::UMemory* get_cached_icu_object(ICUObjectCacheType cache_type);
+  icu::UMemory* get_cached_icu_object(ICUObjectCacheType cache_type);
   void set_icu_object_in_cache(ICUObjectCacheType cache_type,
-                               std::shared_ptr<U_ICU_NAMESPACE::UMemory> obj);
+                               std::shared_ptr<icu::UMemory> obj);
   void clear_cached_icu_object(ICUObjectCacheType cache_type);
   void ClearCachedIcuObjects();
 
@@ -1692,7 +1692,7 @@ class V8_EXPORT_PRIVATE Isolate final : private HiddenFactory {
       return static_cast<std::size_t>(a);
     }
   };
-  std::unordered_map<ICUObjectCacheType, std::shared_ptr<U_ICU_NAMESPACE::UMemory>,
+  std::unordered_map<ICUObjectCacheType, std::shared_ptr<icu::UMemory>,
                      ICUObjectCacheTypeHash>
       icu_object_cache_;
 
